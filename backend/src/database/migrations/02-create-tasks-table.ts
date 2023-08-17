@@ -28,7 +28,7 @@ export default {
         allowNull: false,
       },
       data: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
     });

@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from "express";
+import ITask from "../interfaces/Tasks/Task";
 import IUser from "../interfaces/User/User";
 import { ILogin, NewEntity } from "../interfaces/User/UserModel";
 
 export default class Validations {
   private static emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   private static phoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/
+  private static dataRegex = /^\d{4}-\d{2}-\d{2}$/
   private static passwordMinLength = 4;
   private static fullNameMinLength = 5;
 
@@ -22,6 +24,25 @@ export default class Validations {
 
     next();
   };
+
+  static validateTasks(req : Request, res : Response, next : NextFunction)
+  : Response | void {
+    const { completed, data, description } = req.body;
+    const userId = Number(res.locals.userId);
+    if (completed === undefined || !data || !description || !userId) {
+      return res.status(400).json({ message: 'All fields must a be filled' });
+    }
+
+    if (typeof completed !== 'boolean') {
+      return res.status(401).json({ message: 'Completed must a be boolean' });
+    }
+
+    if (!Validations.dataRegex.test(data)) {
+      return res.status(401).json({ message: 'Invalid date format' })
+    }
+
+    next();
+  }
 
   static validateNewUser(req : Request, res : Response, next : NextFunction)
   : Response | void {
