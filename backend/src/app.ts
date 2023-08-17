@@ -1,5 +1,5 @@
 import * as express from 'express';
-// import router from './routes';
+import router from './routes';
 
 class App {
   public app: express.Express;
@@ -18,7 +18,7 @@ class App {
   }
 
   private routes(): void {
-    // this.app.use(router);
+    this.app.use(router);
   }
 
   private config():void {
