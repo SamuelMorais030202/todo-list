@@ -12,6 +12,12 @@ taskRouter.get(
   (req : Request, res : Response) => taskController.getTasksAll(req, res),
 );
 
+taskRouter.get(
+  '/:completed',
+  Authorized,
+  (req : Request, res : Response) => taskController.getTaskByCompleted(req, res),
+);
+
 taskRouter.post(
   '/',
   Authorized,

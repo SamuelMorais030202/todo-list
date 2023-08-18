@@ -15,6 +15,15 @@ export default class TaskController {
     return res.status(mapStatusHTTP(status)).json(data);
   }
 
+  public async getTaskByCompleted(req : Request, res : Response) {
+    const userId = Number(res.locals.userId);
+    const completed = JSON.parse(req.params.completed);
+
+    const { data, status } = await this.taskService.getTaskByCompleted(userId, completed);
+
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
   public async createTask(req : Request, res : Response) {
     const { description, completed, data } = req.body;
     const userId = Number(res.locals.userId);

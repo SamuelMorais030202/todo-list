@@ -23,6 +23,11 @@ export default class TaskModel implements ITaskModel {
     return task;
   }
 
+  async getTaskByCompleted(completed : ITask['completed'], userId : ITask['userId']) : Promise<ITask[] | null> {
+    const tasks = await this.model.findAll({ where: { userId, completed } });
+    return tasks;
+  }
+
   async updateTask(id : number, data: Partial<NewEntity<ITask>>) : Promise<ITask | null> {
     const [affectedRows] = await this.model.update(data, { where: { id } });
     if (affectedRows === 0) return null;

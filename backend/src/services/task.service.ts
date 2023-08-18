@@ -13,6 +13,16 @@ export default class TaskService {
     return { status: 'SUCCESSFUL', data: tasks };
   }
 
+  public async getTaskByCompleted(userId : number, completed : ITask['completed'])
+  : Promise<ServiceResponse<ITask[]>> {
+    const tasks = await this.taskModel.getTaskByCompleted(completed, userId);
+    if (tasks === null) {
+      return { status: 'CONFLICT', data: { message: 'Unable to list tasks' } }
+    }
+
+    return { status: 'SUCCESSFUL', data: tasks };
+  }
+
   public async createTask(data : NewEntity<ITask>) : Promise<ServiceResponse<ITask>> {
     const newTask = await this.taskModel.createTask(data);
     return { status: 'SUCCESSFUL', data: newTask };
