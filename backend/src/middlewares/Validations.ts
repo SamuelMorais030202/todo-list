@@ -25,10 +25,21 @@ export default class Validations {
     next();
   };
 
+  static validateId(req : Request, res : Response, next : NextFunction) : Response | void {
+    const { id } = req.body;
+
+    if(!id) {
+      return res.status(400).json({ message: 'All fields must a be filled' });
+    }
+
+    return next();
+  }
+
   static validateTasks(req : Request, res : Response, next : NextFunction)
   : Response | void {
     const { completed, data, description } = req.body;
     const userId = Number(res.locals.userId);
+
     if (completed === undefined || !data || !description || !userId) {
       return res.status(400).json({ message: 'All fields must a be filled' });
     }

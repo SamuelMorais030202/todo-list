@@ -19,4 +19,12 @@ taskRouter.post(
   (req : Request, res : Response) => taskController.createTask(req, res),
 );
 
+taskRouter.put(
+  '/',
+  Authorized,
+  Validations.validateId,
+  Validations.validateTasks,
+  (req : Request, res : Response) => taskController.updateTask(req, res),
+);
+
 export default taskRouter;

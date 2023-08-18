@@ -17,4 +17,23 @@ export default class TaskService {
     const newTask = await this.taskModel.createTask(data);
     return { status: 'SUCCESSFUL', data: newTask };
   }
+
+  public async updateTask(id : number, data: NewEntity<ITask>) : Promise<ServiceResponse<ITask>> {
+    const foundTask = await this.taskModel.getTaskById(id);
+    if (!foundTask) {
+      return { status: 'NOT_FOUND', data: { message: 'Task not found' } };
+    }
+
+    const uptadeTask = await this.taskModel.updateTask(id, data);
+    if (uptadeTask === null) {
+      return {
+        status: 'CONFLICT',
+        data: {
+          message: `There are no update to perform in Task ${id}`,
+        },
+      }
+    }
+
+    return { status: 'SUCCESSFUL', data: uptadeTask };
+  }
 }

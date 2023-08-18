@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import mapStatusHTTP from "../utils/mapStatusHTTP";
 import TaskService from "../services/task.service";
+import ITask from "../interfaces/Tasks/Task";
 
 export default class TaskController {
   constructor (
@@ -22,8 +23,13 @@ export default class TaskController {
 
     return res.status(mapStatusHTTP(response.status)).json(response.data);
   }
-}
 
-// "description": "Lavar casa",
-// "completed": false,
-// "data": "18/09/2023"
+  public async updateTask(req : Request, res : Response) {
+    const { description, completed, data, id } = req.body;
+    const userId = Number(res.locals.userId);
+
+    const response = await this.taskService.updateTask(Number(id), { description, completed, data, userId });
+
+    return res.status(mapStatusHTTP(response.status)).json(response.data);
+  }
+}
