@@ -27,4 +27,10 @@ taskRouter.put(
   (req : Request, res : Response) => taskController.updateTask(req, res),
 );
 
+taskRouter.delete(
+  '/:id',
+  Authorized,
+  (req : Request, res : Response) => taskController.deleteTask(req, res),
+);
+
 export default taskRouter;

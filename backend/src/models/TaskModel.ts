@@ -29,4 +29,8 @@ export default class TaskModel implements ITaskModel {
 
     return this.getTaskById(id);
   }
+
+  async deleteTask(id : number) : Promise<number> {
+    return this.model.destroy({ where: { id } });
+  }
 }

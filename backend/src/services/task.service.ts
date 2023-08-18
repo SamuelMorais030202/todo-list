@@ -1,4 +1,4 @@
-import { ServiceResponse } from "../interfaces/ServiceResponse";
+import { ServiceMessage, ServiceResponse } from "../interfaces/ServiceResponse";
 import ITask from "../interfaces/Tasks/Task";
 import { NewEntity } from "../interfaces/User/UserModel";
 import TaskModel from "../models/TaskModel";
@@ -35,5 +35,13 @@ export default class TaskService {
     }
 
     return { status: 'SUCCESSFUL', data: uptadeTask };
+  }
+
+  public async deleteTask(id : number) : Promise<ServiceResponse<ServiceMessage>> {
+    const foundTask = await this.taskModel.getTaskById(id);
+    if (foundTask === null) return { status: 'NOT_FOUND', data: { message: 'Task not found' } };
+
+    await this.taskModel.deleteTask(id);
+    return { status: 'SUCCESSFUL', data: { message: 'Task deleted successfully' } };
   }
 }
