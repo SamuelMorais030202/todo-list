@@ -2,6 +2,7 @@ import axios from "axios";
 import { ITask } from "../interfaces/ITask";
 import { IRequestAddTask } from "../interfaces/IRequestAddTask";
 import { IRequestLogin } from "../interfaces/IRequestLogin";
+import { INewUser } from "../interfaces/IUser";
 
 const api = axios.create({
   baseURL: `http://localhost:${process.env.REACT_APP_API_PORT || 3001}`,
@@ -18,6 +19,11 @@ export const requestData = async (endpoint : string) : Promise<any[] | any> => {
 
 export const requestLogin = async (endpoint : string, body : IRequestLogin) => {
   const { data } = await api.post(endpoint, body);
+  return data;
+}
+
+export const requestAddUser = async (body : INewUser) => {
+  const { data } = await api.post('/user', body);
   return data;
 }
 
