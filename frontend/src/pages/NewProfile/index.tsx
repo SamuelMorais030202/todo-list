@@ -46,7 +46,10 @@ export const NewProfile = () : JSX.Element => {
     <div className="new-profile-page">
       <h1>Create your account</h1>
       <section className="newProfile">
-        <Input name="fullName" handleChange={ handleChange } value={ formState.fullName } />
+        <Input name="fullName"
+          handleChange={ handleChange }
+          value={ formState.fullName }
+        />
         <Input name="email" handleChange={ handleChange } value={ formState.email } />
         <Input name="phone" handleChange={ handleChange } value={ formState.phone } />
         <InputPassword
