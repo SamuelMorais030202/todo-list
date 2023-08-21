@@ -27,21 +27,23 @@ export const AddTask = ({ setTasks } : AddTaskProps ) => {
 
   return (
     <div className="add-task">
-      <label htmlFor="description">
+      <label htmlFor="description" className="label-form">
         <input
           type="text"
           id="description"
           name="description"
+          className="input-add-task"
           placeholder="description"
           value={ description }
           onChange={ (event : React.ChangeEvent<HTMLInputElement>) =>
             setDescription(event.target.value) }
         />
       </label>
-      <label htmlFor="data">
+      <label htmlFor="data" className="label-form">
         <input
           type="date"
           id="data"
+          className="input-add-task"
           name="data"
           value={ data }
           onChange={ (event : React.ChangeEvent<HTMLInputElement>) =>
@@ -50,6 +52,7 @@ export const AddTask = ({ setTasks } : AddTaskProps ) => {
       </label>
       <button
         type="button"
+        className="button-add-task"
         onClick={ addTask }
       >
         To add

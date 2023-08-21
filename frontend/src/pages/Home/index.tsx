@@ -4,6 +4,8 @@ import { requestData, setToken, } from "../../services/request";
 import { AddTask } from "../../components/AddTask";
 import { ListTasks } from "../../components/ListTasks";
 
+import './index.css';
+
 export const Home = () : JSX.Element => {
   const [tasks, setTasks] = useState([]);
   const [authenticated, setAuthenticated] = useState(false);

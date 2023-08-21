@@ -3,6 +3,8 @@ import { ITask } from "../../interfaces/ITask";
 import { IListTasks } from "../../interfaces/IListTasks";
 import { requestData, requestDelete, uptadeTask } from "../../services/request";
 
+import './index.css';
+
 export const ListTasks = ({ tasks, setTasks } : IListTasks) => {
 
   const deleteTask = async (id : ITask['id']) => {
@@ -45,7 +47,10 @@ export const ListTasks = ({ tasks, setTasks } : IListTasks) => {
                   }
                 </td>
                 <td>
-                  <button onClick={ () => deleteTask(task.id) } >
+                  <button
+                    onClick={ () => deleteTask(task.id) }
+                    className="btn-delete"
+                  >
                     <FaTrash />
                   </button>
                 </td>

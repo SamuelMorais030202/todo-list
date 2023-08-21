@@ -1,0 +1,32 @@
+.home-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.home-page header {
+  margin-top: 50px;
+}
+
+.add-task {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.input-add-task {
+  border: none;
+  background-color: transparent;
+  width: 150px;
+}
+
+.button-add-task {
+  background-color: green;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+}
