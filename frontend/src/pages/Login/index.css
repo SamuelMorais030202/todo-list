@@ -43,7 +43,7 @@
   border: none;
 }
 
-.button-login {
+.button-login, .button {
   background-color: green;
   border: none;
   padding: 8px;

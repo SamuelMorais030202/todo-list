@@ -14,22 +14,23 @@ export const InputPassword = ({ name, value, handleChange, showPassword, setShow
   : IInputPassword) => {
 
   return (
-    <label htmlFor={ name }>
-    <input
-      type={showPassword ? "text" : "password"}
-      id={ name }
-      name={ name }
-      placeholder={ name }
-      value={ value}
-      onChange={ handleChange }
-    />
-    <button
-      type="button"
-      className="password-toggle"
-      onClick={() => setShowPassword(!showPassword)}
-    >
-      {showPassword ? <FaEyeSlash /> : <FaEye />}
-    </button>
+    <label htmlFor={ name } className="label-form">
+      <input
+        type={showPassword ? "text" : "password"}
+        id={ name }
+        name={ name }
+        placeholder={ name }
+        value={ value}
+        onChange={ handleChange }
+        className="input"
+      />
+      <button
+        type="button"
+        className="password-toggle"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? <FaEyeSlash /> : <FaEye />}
+      </button>
   </label>
   )
 }

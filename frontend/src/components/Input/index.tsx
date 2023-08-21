@@ -8,7 +8,7 @@ export interface IInput {
 }
 
 export const Input = ({ name, value, handleChange } : IInput) => (
-  <label htmlFor={ name }>
+  <label htmlFor={ name } className="label-form">
     <input
       type="text"
       id={ name }
@@ -16,6 +16,7 @@ export const Input = ({ name, value, handleChange } : IInput) => (
       name={ name }
       value={ value }
       onChange={ handleChange }
+      className="input"
     />
   </label>
 )

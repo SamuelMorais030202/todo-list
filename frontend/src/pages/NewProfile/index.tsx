@@ -4,6 +4,8 @@ import { Input } from "../../components/Input";
 import { InputPassword } from "../../components/InputPassword";
 import { requestAddUser } from "../../services/request";
 
+import './index.css';
+
 export const NewProfile = () : JSX.Element => {
   const [formState, setFormState] = useState({
     fullName: '',
@@ -45,7 +47,7 @@ export const NewProfile = () : JSX.Element => {
   return (
     <div className="new-profile-page">
       <h1>Create your account</h1>
-      <section className="newProfile">
+      <section className="form newProfile">
         <Input name="fullName"
           handleChange={ handleChange }
           value={ formState.fullName }
@@ -66,13 +68,21 @@ export const NewProfile = () : JSX.Element => {
           showPassword={ showConfirmPassword }
           setShowPassword={ setShowConfirmPassword }
         />
-        <button type="button" onClick={ handleSubmit }>Register</button>
+        <button
+          type="button"
+          onClick={ handleSubmit }
+          className="button btn-new-profile"
+        >
+          Register
+        </button>
       </section>
+  
       {
         erroRequest && (
-          <p>{ erroRequest }</p>
+          <p className="error-request">{ erroRequest }</p>
         )
       }
+  
     </div>
   )
 }
