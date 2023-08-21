@@ -77,10 +77,15 @@ export const Login = () : JSX.Element => {
       </section>
       {
         failedLogin
-        ? <p>Email or password invalid</p>
+        ? <p className="error-request">Email or password invalid</p>
         : null
       }
-      <p onClick={ () => { navigate('/new-profile') }}>Criar conta</p>
+      <p
+        onClick={ () => { navigate('/new-profile') }}
+      >
+        Criar conta
+      </p>
+
     </div>
   )
 }

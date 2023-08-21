@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
-  background-image: linear-gradient(to right, blue, purple);
+  background-image: linear-gradient(to right, blue, rgb(61, 5, 61));
 }
 
 .page-login h1 {
@@ -36,6 +36,7 @@
   font-weight: 500;
   background-color: transparent;
   outline: none;
+  width: 230px;
 }
 
 .password-toggle {
@@ -44,6 +45,7 @@
 }
 
 .button-login, .button {
+  margin-top: 10px;
   background-color: green;
   border: none;
   padding: 8px;
