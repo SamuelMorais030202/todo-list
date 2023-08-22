@@ -3,14 +3,15 @@ import { ChangeEvent } from "react";
 export interface IInput {
   name: string;
   value: string;
+  type: string;
 
   handleChange: (event : ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input = ({ name, value, handleChange } : IInput) => (
+export const Input = ({ name, value, handleChange, type } : IInput) => (
   <label htmlFor={ name } className="label-form">
     <input
-      type="text"
+      type={ type }
       id={ name }
       placeholder={ name }
       name={ name }

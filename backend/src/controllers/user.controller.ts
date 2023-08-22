@@ -13,7 +13,7 @@ export default class UserController {
 
     return res.status(mapStatusHTTP(user.status)).json(user.data);
   }
-
+ 
   public async createUser(req : Request, res : Response) {
     const user = req.body;
     const newUser = await this.userService.createUser(user);

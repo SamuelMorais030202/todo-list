@@ -14,7 +14,7 @@ export default class UserService {
 
     return { status: 'SUCCESSFUL', data: userId };
   }
-
+ 
   public async createUser(user : NewEntity<IUser>) : Promise<ServiceResponse<IUser>> {
     const foundUser = await this.userModel.findByEmail(user.email);
 
