@@ -11,7 +11,7 @@ export const Routes = () => (
       <Route path="/login" element={ <Login /> } />
       <Route path="/new-profile" element={ <NewProfile /> } />
       <Route path="/edit-profile" element={ <EditProfile /> } />
-      <Route path="*" element={ <Navigate to="/login" /> } />  
+      <Route path="*" element={ <Navigate to="/Home" /> } />  
     </Switch>
   </BrowserRouter>
 )
