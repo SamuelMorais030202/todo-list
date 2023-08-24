@@ -22,8 +22,32 @@ const listTaskUserId = [
     completed: false,
     data: '2023-09-26',
     description: 'Me candidatar para 3 vagas frontend'
-  }
+  },
 ];
+
+const tasksCompleted = [
+  {
+    id: 1,
+    userId: 1,
+    completed: true,
+    data: '2023-09-25',
+    description: 'Criar um currículo frontend'
+  },
+  {
+    id: 2,
+    userId: 1,
+    completed: true,
+    data: '2023-09-26',
+    description: 'Criar um currículo backed'
+  },
+  {
+    id: 3,
+    userId: 1,
+    completed: true,
+    data: '2023-09-26',
+    description: 'Me candidatar para 3 vagas frontend'
+  },
+]
 
 const newTask = {
   id: 4,
@@ -42,4 +66,5 @@ export {
   listTaskUserId,
   newTask,
   login,
+  tasksCompleted,
 }
