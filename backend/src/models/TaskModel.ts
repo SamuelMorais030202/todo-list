@@ -22,7 +22,7 @@ export default class TaskModel implements ITaskModel {
 
     return task;
   }
-
+ 
   async getTaskByCompleted(completed : ITask['completed'], userId : ITask['userId']) : Promise<ITask[] | null> {
     const tasks = await this.model.findAll({ where: { userId, completed } });
     return tasks;

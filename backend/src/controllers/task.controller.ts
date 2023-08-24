@@ -7,7 +7,7 @@ export default class TaskController {
   constructor (
     private taskService = new TaskService(),
   ) { }
-
+ 
   public async getTasksAll(_req : Request, res : Response) {
     const userId = Number(res.locals.userId);
     const { data, status } = await this.taskService.getTasksAll(userId);

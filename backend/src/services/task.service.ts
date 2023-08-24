@@ -7,7 +7,7 @@ export default class TaskService {
   constructor (
     private taskModel = new TaskModel(),
   ) { };
-
+ 
   public async getTasksAll(userId : number) : Promise<ServiceResponse<ITask[]>> {
     const tasks = await this.taskModel.getTasksAll(userId);
     return { status: 'SUCCESSFUL', data: tasks };
